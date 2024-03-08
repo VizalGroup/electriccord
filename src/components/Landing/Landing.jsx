@@ -7,7 +7,6 @@ import Banner from '../Banner/Banner'
 export default function Landing() {
   return (
     <div>
-        <div style={{marginTop: "80px"}}></div>
         <Slider />
         <br />
         <MainLanding/>

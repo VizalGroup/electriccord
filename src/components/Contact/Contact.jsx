@@ -21,7 +21,7 @@ export default function Contact() {
     event.preventDefault();
     const { name, email, phoneNumber, message } = formData;
     const emailContent = `¡Que tal! Mi nombre es ${name}\n\n Mi consulta/mensaje es el/la siguiente: ${message}\n\n Mis datos de contactos son:\n\n Correo electrónico: ${email}\nNúmero de teléfono: ${phoneNumber}\n\n ¡Saludos!`;
-    window.location.href = `mailto:ventas@injeccordiesel.com.ar?subject=Consulta&body=${encodeURIComponent(
+    window.location.href = `mailto:ventas@electriccord.com.ar?subject=Consulta&body=${encodeURIComponent(
       emailContent
     )}`;
   };
@@ -88,7 +88,7 @@ export default function Contact() {
             style={{height: "250px"}}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-dark">
           Enviar
         </button>
       </form>
