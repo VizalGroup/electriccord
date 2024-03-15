@@ -7,7 +7,7 @@ import Logout from "../Logout/Logout";
 export default function AdminPanel() {
   return (
     <div class='container'>
-      <h1 className={Style.title}>Panel Administrador <a href="/">injeccordiesel.com.ar</a></h1>
+      <h1 className={Style.title}>Panel Administrador <a href="/">Electricord.com.ar</a></h1>
       <br />
       <p className={Style.parr}>
         Por razones de seguridad pulsar el botón salir, si no quedará la sesión
@@ -24,10 +24,10 @@ export default function AdminPanel() {
           </Link>
         </div>
         <div className={Style.adminButtonContainer}>
-          <Link to="/dashboard/new_category_or_subcategory">
+          <Link to="/dashboard/new_category">
             <button className={`btn btn-success btn-lg ${Style.adminButton}`}>
               <FaList className={Style.icon} />
-              <span> Nueva Categoría/Subcategoría</span>
+              <span> Nueva Categoría</span>
             </button>
           </Link>
         </div>

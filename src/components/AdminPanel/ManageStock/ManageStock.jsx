@@ -5,10 +5,10 @@ import { FaArrowLeft } from "react-icons/fa";
 
 export default function ManageStock() {
   return (
-    <div className="container" style={{marginTop: "10vh"}}>
+    <div className="container" >
+      <br />
       <a className="btn btn-warning" href="/dashboard" style={{ marginBottom: "3vh" }}><FaArrowLeft/></a>
       <ConfigureCategories />
-     
       <hr />
       <ConfigureProducts />
     </div>

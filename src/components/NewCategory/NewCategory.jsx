@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { PostCategory, GetCategories } from "../../../redux/actions";
+import { PostCategory, GetCategories } from "../../redux/actions";
 import { Form, Button, Alert } from "react-bootstrap";
 import Style from "./NewCategory.module.css";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function NewCategory() {
   const dispatch = useDispatch();
@@ -47,9 +48,16 @@ export default function NewCategory() {
   useEffect(() => {
     dispatch(GetCategories());
   }, [dispatch]);
-  
+
   return (
-    <div>
+    <div class="container" style={{ marginTop: "20vh" }}>
+      <a
+        className="btn btn-success"
+        href="/dashboard"
+        style={{ marginBottom: "3vh" }}
+      >
+        <FaArrowLeft />
+      </a>
       <h2>Nueva Categoría</h2>
       {showSuccess && (
         <Alert variant="success">Categoría publicada con éxito.</Alert>
@@ -76,15 +84,14 @@ export default function NewCategory() {
           <br />
           <Form.Text className="text-muted">
             Recuerda subir una imagen PNG para que el aspecto de la página de
-            cada categoría se muestre correctamente. Convierte tu Imagen {" "}
+            cada categoría se muestre correctamente. Convierte tu Imagen{" "}
             <a
               href="https://www.remove.bg/es"
               target="_blank"
               rel="noopener noreferrer"
             >
-               Aquí
+              Aquí
             </a>
-            
           </Form.Text>
           <Form.Control
             type="file"
@@ -94,12 +101,12 @@ export default function NewCategory() {
           />
         </Form.Group>
         <div>
-              {formData.picture ? (
-                <div>
-                  <img className={Style.imageRender} src={formData.picture} />
-                </div>
-              ) : null}
+          {formData.picture ? (
+            <div>
+              <img className={Style.imageRender} src={formData.picture} />
             </div>
+          ) : null}
+        </div>
         <br />
         <br />
         <Button variant="success" type="submit">

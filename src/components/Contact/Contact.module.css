@@ -8,4 +8,13 @@
 
 .container {
   padding: 3vw;
+  
+}
+
+.gradientBackground {
+  background: linear-gradient(to bottom, #000000, #313131);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
 }

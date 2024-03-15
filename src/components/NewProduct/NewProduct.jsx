@@ -17,7 +17,7 @@ export default function NewProduct() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
 
-  const subcategories = useSelector((state) => state.subcategories);
+  const categories = useSelector((state) => state.categories);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -110,7 +110,7 @@ export default function NewProduct() {
 
         <br />
         <Form.Group controlId="id_category">
-          <Form.Label>Subcategoría</Form.Label>
+          <Form.Label>Categoría</Form.Label>
           <Form.Control
             as="select"
             name="id_category"
@@ -118,10 +118,10 @@ export default function NewProduct() {
             onChange={handleInputChange}
             required
           >
-            <option value="">Seleccionar Subcategoría</option>
-            {subcategories.map((subcategory) => (
-              <option key={subcategory.id} value={subcategory.id}>
-                {subcategory.title}
+            <option value="">Seleccionar Categoría</option>
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.title}
               </option>
             ))}
           </Form.Control>

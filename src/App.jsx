@@ -10,11 +10,10 @@ import Contact from "./components/Contact/Contact";
 import PageByCategory from "./components/PageByCategory/PageByCategory";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 import Login from "./components/Login/Login";
-
 import NewProduct from "./components/NewProduct/NewProduct";
-import NewCategoryOrSubcategory from "./components/NewCategoryOrSubcategory/NewCategoryOrSubcategory";
 import ManageStock from "./components/AdminPanel/ManageStock/ManageStock";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
+import NewCategory from "./components/NewCategory/NewCategory";
 
 const PrivateRoute = ({ element }) => {
  
@@ -31,7 +30,7 @@ const PrivateRoute = ({ element }) => {
 function App() {
   const currentPath = window.location.pathname;
   const isLoginOrDashboard =
-    currentPath === "/acceso" || currentPath === "/dashboard" || currentPath === "/dashboard/new_product" || currentPath === "/dashboard/new_category_or_subcategory" || currentPath === "/dashboard/manage_stock" ;
+    currentPath === "/acceso" || currentPath === "/dashboard" || currentPath === "/dashboard/new_product" || currentPath === "/dashboard/new_category" || currentPath === "/dashboard/manage_stock" ;
 
   return (
     <>
@@ -45,7 +44,7 @@ function App() {
         <Route stric path="/acceso" element={<Login />} />
         <Route stric path="/dashboard" element={<PrivateRoute element={<AdminPanel />} />}/>
         <Route stric path="/dashboard/new_product" element={<PrivateRoute element={<NewProduct />} />}/>
-        <Route stric path="/dashboard/new_category_or_subcategory" element={<PrivateRoute element={<NewCategoryOrSubcategory />} />}/>
+        <Route stric path="/dashboard/new_category" element={<PrivateRoute element={<NewCategory />} />}/>
         <Route stric path="/dashboard/manage_stock" element={<PrivateRoute element={<ManageStock />} />}/>
 
 

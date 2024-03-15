@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  GetProducts,
-  GetCategories,
-} from "../../redux/actions";
+import { GetProducts, GetCategories } from "../../redux/actions";
 import Style from "./AllProducts.module.css";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -38,8 +35,8 @@ export default function AllProducts() {
   const endIndex = startIndex + productsPerPage;
   const displayedProducts = filteredProducts.slice(startIndex, endIndex);
 
-  const handleWhatsAppClick = (code, title, category, subcategory) => {
-    const message = `Buenos días, quería consultar por ${title}, con el código ${code} que figura en su catálogo de Injeccordiesel.com.ar en ${category}, ${subcategory}. \n\n"Aquí escribe tu consulta"`;
+  const handleWhatsAppClick = (code, title, category) => {
+    const message = `Buenos días, quería consultar por ${title}, con el código ${code} que figura en su catálogo de Electricord.online en ${category}. \n\n"Aquí escribe tu consulta"`;
     const whatsappUrl = `https://wa.me/3516658905?text=${encodeURIComponent(
       message
     )}`;
@@ -58,18 +55,18 @@ export default function AllProducts() {
       <button
         key={i}
         onClick={() => handlePageChange(i)}
-        className={`btn ${page === i ? "btn-dark" : "btn-outline-dark"} ${
+        className={`btn ${page === i ? "btn-light" : "btn-outline-light"} ${
           Style.page
         }`}
-        style={{margin: "5px"}}
-        >
+        style={{ margin: "5px" }}
+      >
         {i}
       </button>
     );
   }
 
   return (
-    <div>
+    <div className={Style.gradientBackground}>
       <h3 className={Style.title}>Todos los Productos</h3>
       <p className={Style.parr}>
         Bienvenido a nuestro catálogo en línea. Injeccordiesel tiene a su
@@ -97,13 +94,13 @@ export default function AllProducts() {
         />
       </div>
       {/* Paginación */}
-      <div className="d-flex justify-content-center mt-4">{pagination}</div>
+      <div className="d-flex justify-content-center mt-4" >{pagination}</div>
 
       {/* Contenedor de las Cartas */}
       <div className={Style.container}>
         {displayedProducts.reverse().map((product, index) => (
           <div
-            className="card"
+            className="card text-bg-dark mb-3"
             style={{ width: "18rem", marginBottom: "1vh" }}
             key={index}
           >
@@ -117,45 +114,34 @@ export default function AllProducts() {
               <h5 className="card-title">{product.title}</h5>
               <p className="card-text">{product.summary}</p>
             </div>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">
+            <ul className="list-group list-group-flush" style={{listStyle: 'none'}}>
+              <li className="text-bg-dark mb-3">
                 {
                   categories.find(
-                    (category) =>
-                      subcategories.find(
-                        (subcategory) =>
-                          subcategory.id === product.id_subcategory
-                      )?.id_category === category.id
+                    (category) => category.id === product.id_category
                   )?.title
                 }
               </li>
-              <li className="list-group-item">
+              <li className="text-bg-dark mb-3">
                 <b>Código: </b>
                 {product.code}
               </li>
             </ul>
             <div className="card-body">
-              <button
-                className="btn btn-success"
+              <a
+                
                 onClick={() =>
                   handleWhatsAppClick(
                     product.code,
                     product.title,
                     categories.find(
-                      (category) =>
-                        subcategories.find(
-                          (subcategory) =>
-                            subcategory.id === product.id_subcategory
-                        )?.id_category === category.id
-                    )?.title,
-                    subcategories.find(
-                      (subcategory) => subcategory.id === product.id_subcategory
+                      (category) => category.id === product.id_category
                     )?.title
                   )
                 }
               >
-                Consultar por <FaWhatsapp />
-              </button>
+                <FaWhatsapp style={{fontSize: '48px'}} />
+              </a>
             </div>
           </div>
         ))}

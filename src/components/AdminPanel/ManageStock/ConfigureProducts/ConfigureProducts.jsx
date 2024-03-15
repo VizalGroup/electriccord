@@ -71,10 +71,10 @@ export default function ConfigureProducts() {
   };
 
   const getSubcategoryName = (ProductId) => {
-    const subcategory = subcategories.find(
-      (subcategory) => subcategory.id === ProductId
+    const category = categories.find(
+      (category) => category.id === ProductId
     );
-    return subcategory ? subcategory.title : "N/A";
+    return category ? category.title : "N/A";
   };
 
   // Calculate pagination
@@ -176,13 +176,14 @@ export default function ConfigureProducts() {
             onChange={(e) => setEditedProduct({...editedProduct, id_category: e.target.value})
           }
           >
-            <option value="">Seleccionar subcategoría</option>
-            {subcategories.map((subcategory) => (
-              <option key={subcategory.id} value={subcategory.id}>
-                {subcategory.title}
+            <option value="">Seleccionar categoría</option>
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.title}
               </option>
             ))}
           </select>
+          <br />
           <button
             className="btn btn-primary"
             onClick={handleSaveEdit}
@@ -220,7 +221,7 @@ export default function ConfigureProducts() {
             <th>Nombre</th>
             <th>Resumen</th>
             <th>Código</th>
-            <th>Subcategoría</th>
+            <th>Categoría</th>
             <th>Imagen</th>
             <th>Acciones</th>
           </tr>

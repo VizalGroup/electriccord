@@ -55,7 +55,7 @@ export default function ConfigureCategories() {
       // Actualizar la lista de categorías
       await dispatch(GetCategories());
   
-      closeModal();
+      
     } catch (error) {
       console.error("Error al eliminar la categoría:", error);
     } finally {
@@ -88,7 +88,6 @@ export default function ConfigureCategories() {
 
   useEffect(() => {
     dispatch(GetCategories());
-    dispatch(GetSubcategories());
     dispatch(GetProducts());
   }, [dispatch]);
 
@@ -139,7 +138,7 @@ export default function ConfigureCategories() {
         <div className="alert alert-danger" role="alert">
           <p>
             ¿Está seguro que desea eliminar la categoría{" "}
-            {categoryToDelete.title}? Esto Eliminara todas las subcategorías y
+            {categoryToDelete.title}? Esto Eliminara todos los
             productos que pertenecen a la misma.{" "}
           </p>
           <button

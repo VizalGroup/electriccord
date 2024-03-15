@@ -1,19 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { GetCategories } from "../../redux/actions";
+import { GetCategories, GetProducts } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { FaSearch } from "react-icons/fa";
 
 export default function NavBar() {
   const categories = useSelector((state) => state.categories);
+  const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchSuggestions, setSearchSuggestions] = useState([]);
   
   useEffect(() => {
     dispatch(GetCategories());
+    dispatch(GetProducts());
   }, [dispatch]);
   
-  console.log(categories);
+  const handleSearchChange = (event) => {
+    const term = event.target.value;
+    setSearchTerm(term);
+    if (term.trim() !== "") {
+      const filteredSuggestions = products.filter((product) =>
+        product.title.toLowerCase().includes(term.toLowerCase()) ||
+        product.code.toLowerCase().includes(term.toLowerCase())
+      );
+      setSearchSuggestions(filteredSuggestions);
+    } else {
+      setSearchSuggestions([]);
+    }
+  };
   
   return (
     <nav class="navbar navbar-expand-lg bg-dark">
@@ -73,17 +90,30 @@ export default function NavBar() {
               </ul>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Buscar..."
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-light" type="submit">
-            <FaSearch style={{color: 'whitesmoke'}} />
-            </button>
-          </form>
+          <div className="position-relative">
+            <form className="d-flex" role="search">
+              <input
+                className="form-control me-2"
+                type="search"
+                placeholder="Buscar..."
+                aria-label="Search"
+                value={searchTerm}
+                onChange={handleSearchChange}
+              />
+           
+            </form>
+            {searchSuggestions.length > 0 && (
+              <ul className="list-group position-absolute w-100" style={{ top: "100%", zIndex: 1 }}>
+                {searchSuggestions.map((product) => (
+                  <li key={product.id} className="list-group-item">
+                    <Link to={`/producto/${product.id}`} style={{ color: "black", textDecoration: 'none' }}>
+                      {product.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </nav>

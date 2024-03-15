@@ -1,17 +1,19 @@
-import React from 'react'
-import Slider from '../Slider/Slider'
-import MainLanding from '../MainLanding/MainLanding'
-import Banner from '../Banner/Banner'
-
+import React from "react";
+import Slider from "../Slider/Slider";
+import MainLanding from "../MainLanding/MainLanding";
+import Banner from "../Banner/Banner";
+import Style from "./Landing.module.css";
 
 export default function Landing() {
   return (
     <div>
-        <Slider />
+      <Slider />
+      <div className={Style.gradientBackground}>
         <br />
-        <MainLanding/>
-        <Banner/>
-        <div style={{marginBottom: "10vh"}}></div>
+        <MainLanding />
+        <Banner />
+        <br />
+      </div>
     </div>
-  )
+  );
 }

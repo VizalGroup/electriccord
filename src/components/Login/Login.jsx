@@ -28,14 +28,10 @@ function Login() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        marginTop: '30vh',
       }}
     >
-      <img
-        src={logo}
-        className="img-fluid"
-        alt="logo"
-        style={{ width: "300px" }}
-      />
+   
       <div>
         <input
           class="form-control"
@@ -62,7 +58,7 @@ function Login() {
         )}
       </div>
       <br />
-      <button type="button" className="btn btn-primary" onClick={handleLogin}>
+      <button type="button" className="btn btn-dark" onClick={handleLogin}>
         Iniciar sesión
       </button>
     </div>

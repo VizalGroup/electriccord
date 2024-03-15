@@ -35,3 +35,11 @@
   border-radius: 15px;
   height: 50px;
 }
+
+.gradientBackground {
+  background: linear-gradient(to bottom, #000000, #313131);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}

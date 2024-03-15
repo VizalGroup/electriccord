@@ -170,7 +170,7 @@ export const PostProduct = (atributos) => {
       f.append("title", atributos.title);
       f.append("summary", atributos.summary);
       f.append("code", atributos.code);
-      f.append("id_subcategory", atributos.id_subcategory);
+      f.append("id_category", atributos.id_category);
       f.append("picture", atributos.picture);
       var response = await axios.post(productsURL, f);
       console.log("Producto Creado en: ", response.data);
@@ -194,7 +194,7 @@ export const UpdateProduct = (id, atributos) => {
       f.append("title", atributos.title);
       f.append("summary", atributos.summary);
       f.append("code", atributos.code);
-      f.append("id_subcategory", atributos.id_subcategory);
+      f.append("id_category", atributos.id_category);
       f.append("picture", atributos.picture);
       var response = await axios.post(productsURL, f, {
         params: { id: id },
