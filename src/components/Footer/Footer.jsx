@@ -10,13 +10,13 @@ export default function Footer() {
 
   return (
     <footer className={Style.footer}>
-      <a className={Style.email} href="mailto:ventas@Electricord.com.ar">
-        <FaEnvelope /> ventas@Electricord.com.ar
+      <a className={Style.email} href="mailto:ventas@electricord.shop">
+        <FaEnvelope /> ventas@electricord.shop
       </a>
       <span onClick={handleWhatsappClick}>
         <FaWhatsapp className={Style.whatsappIcon} />
       </span>
-      © 2024 - Electricord.com.ar
+      © 2024 - electricord.shop
       <span
         onClick={() => window.open("https://vizalgroup.com/", "_blank")}
         className={Style.developmentIcon}

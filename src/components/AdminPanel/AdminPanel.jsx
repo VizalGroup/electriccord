@@ -7,7 +7,7 @@ import Logout from "../Logout/Logout";
 export default function AdminPanel() {
   return (
     <div class='container'>
-      <h1 className={Style.title}>Panel Administrador <a href="/">Electricord.com.ar</a></h1>
+      <h1 className={Style.title}>Panel Administrador <a href="/">Electricord.shop</a></h1>
       <br />
       <p className={Style.parr}>
         Por razones de seguridad pulsar el botón salir, si no quedará la sesión

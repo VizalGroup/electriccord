@@ -13,7 +13,7 @@ export default function productDetail() {
   const { productDetail } = useSelector((state) => state);
 
   const handleWhatsAppClick = (code, title, category) => {
-    const message = `Buenos días, quería consultar por ${title}, con el código ${code} que figura en su catálogo de Electricord.online en ${category}. \n\n"Aquí escribe tu consulta"`;
+    const message = `Buenos días, quería consultar por ${title}, con el código ${code} que figura en su catálogo de electricord.shop en ${category}. \n\n"Aquí escribe tu consulta"`;
     const whatsappUrl = `https://wa.me/3516658905?text=${encodeURIComponent(
       message
     )}`;

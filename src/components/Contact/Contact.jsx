@@ -21,7 +21,7 @@ export default function Contact() {
     event.preventDefault();
     const { name, email, phoneNumber, message } = formData;
     const emailContent = `¡Que tal! Mi nombre es ${name}\n\n Mi consulta/mensaje es el/la siguiente: ${message}\n\n Mis datos de contactos son:\n\n Correo electrónico: ${email}\nNúmero de teléfono: ${phoneNumber}\n\n ¡Saludos!`;
-    window.location.href = `mailto:ventas@electricord.online?subject=Consulta&body=${encodeURIComponent(
+    window.location.href = `mailto:ventas@electricord.shop?subject=Consulta&body=${encodeURIComponent(
       emailContent
     )}`;
   };
