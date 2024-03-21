@@ -14,6 +14,10 @@ export default function Banner() {
         <a href="https://wa.me/3516658905" className={Style.whatsapp}>
           <FaWhatsapp /> 3516658905
         </a>
+        {" "}
+        <a href="https://wa.me/3516845357" className={Style.whatsapp}>
+          3516845357
+        </a>
         <p className={Style.parr}>
           <b>¡Contactanos!</b>
         </p>
