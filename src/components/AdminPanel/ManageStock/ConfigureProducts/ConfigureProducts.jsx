@@ -87,7 +87,7 @@ export default function ConfigureProducts() {
   const pagination = Array.from({ length: pageCount }, (_, index) => index + 1);
 
   return (
-    <div>
+    <div class='container'>
       <h2>Productos</h2>
 
       {/* Confirmación de eliminación */}
@@ -202,7 +202,7 @@ export default function ConfigureProducts() {
       )}
 
       {/* Paginación */}
-      <div className="d-flex justify-content-center">
+      <div className={Style.paginationContainer}>
         {pagination.map((pageNumber) => (
           <button
             key={pageNumber}

@@ -94,7 +94,7 @@ export default function AllProducts() {
         />
       </div>
       {/* Paginación */}
-      <div className="d-flex justify-content-center mt-4" >{pagination}</div>
+      <div className={Style.paginationContainer}>{pagination}</div>
 
       {/* Contenedor de las Cartas */}
       <div className={Style.container}>

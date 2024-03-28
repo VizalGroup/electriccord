@@ -5,11 +5,7 @@ import { Carousel } from "react-bootstrap";
 import Style from "./Slider.module.css";
 import fondo1 from "../../assets/background.avif";
 import fondo2 from "../../assets/background2.jpg";
-import fondo3 from "../../assets/background3.jpg"
-
-
-
-
+import fondo3 from "../../assets/background3.jpg";
 
 export default function Slider() {
   const categories = useSelector((state) => state.categories);
@@ -28,15 +24,10 @@ export default function Slider() {
   useEffect(() => {
     dispatch(GetCategories());
   }, [dispatch]);
- 
+
   return (
     <div>
-      <Carousel
-        interval={2000}
-        indicators={false}
-        controls={false}
-        
-      >
+      <Carousel interval={2000} indicators={false} controls={false}>
         {categories.map((category) => (
           <Carousel.Item
             key={category.id}

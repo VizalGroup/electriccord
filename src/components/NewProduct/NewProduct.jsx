@@ -53,6 +53,7 @@ export default function NewProduct() {
     dispatch(GetCategories());
   }, [dispatch]);
 
+  
   return (
     <div className="container">
       <br />

@@ -12,7 +12,7 @@ export default function Banner() {
           WhatsApp.
         </p>
         <a href="https://wa.me/3516658905" className={Style.whatsapp}>
-          <FaWhatsapp /> 3516658905
+          <FaWhatsapp /> 3516658905 |
         </a>
         {" "}
         <a href="https://wa.me/3516845357" className={Style.whatsapp}>

@@ -43,3 +43,12 @@
   flex-direction: column;
   color: white;
 }
+
+.paginationContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px; /* Espacio entre los botones */
+  margin-top: 20px; /* Espacio en la parte superior */
+  margin-bottom: 20px; /* Espacio en la parte inferior */
+}
